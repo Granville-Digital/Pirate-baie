@@ -1,0 +1,9 @@
+#map {
+  background-image: url("../img/map.png");
+  background-size: 1329px 884px;
+  background-repeat: no-repeat;
+}
+
+#hexCanvas {
+  opacity: 0.3;
+}
