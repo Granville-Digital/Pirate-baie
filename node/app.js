@@ -5,7 +5,7 @@ var io = require('socket.io').listen(server);
 var ent = require('ent');
 var shell = require('shelljs');
 var SerialPort = require('serialport');
-var port = new SerialPort('/dev/ttyAM0');
+var port = new SerialPort('/dev/ttyUSB1');
 var players = [];
 var start = 0;
 var vent;
@@ -271,6 +271,51 @@ io.sockets.on('connection', function(socket){
 	socket.on('move_bateau', function(id, bateau_id, x, y){
 		ports[id].bateaux[bateau_id].coord_x = x;
 		ports[id].bateaux[bateau_id].coord_y = y;
+	});
+
+	socket.on('mareeHaute', function(){
+		port.write('2', function(err){
+			if (err) {
+				return console.log('Error : '+ err.message);
+			}
+			console.log('transmis');
+		});
+		port.write('1', function(err){
+			if (err) {
+				return console.log('Error : '+ err.message);
+			}
+			console.log('transmis');
+		});
+	});
+	socket.on('mareeDesc', function(){
+		port.write('3', function(err){
+			if (err) {
+				return console.log('Error : '+ err.message);
+			}
+			console.log('transmis');
+		});
+		port.write('4', function(err){
+			if (err) {
+				return console.log('Error : '+ err.message);
+			}
+			console.log('transmis');
+		});
+	});
+	socket.on('mareeBasse', function(){
+		port.write('3', function(err){
+			if (err) {
+				return console.log('Error : '+ err.message);
+			}
+			console.log('transmis');
+		});
+	});
+	socket.on('mareeMont', function(){
+		port.write('4', function(err){
+			if (err) {
+				return console.log('Error : '+ err.message);
+			}
+			console.log('transmis');
+		});
 	});
 
 });

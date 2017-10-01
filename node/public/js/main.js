@@ -2,6 +2,24 @@ var player = {};
 var vent;
 var maree;
 var socket = io.connect('http://localhost:8080');
+var gameData;
+
+$.ajax({
+  url: '/data.json',
+  type: 'GET',
+  dataType: 'json'
+})
+.done(function(data) {
+  gameData = data;
+  console.log(gameData);
+})
+.fail(function() {
+  console.log("error");
+})
+.always(function() {
+  console.log("complete");
+});
+
 
 if (!player.id) {
   $("#jeu").hide();
@@ -27,6 +45,26 @@ socket.on('tooMuchPlayers', function(){
 
 socket.on('assign_ports', function(ports){
   player.port = ports[player.id];
+  for (var i = 0; i < gameData.ports.granville.bateaux.length; i++) {
+    $("#playerBateaux").append(`
+        <div class="col-md-`+(12 / gameData.ports.granville.bateaux.length)+`">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h4 class="panel-title text-center">`+gameData.ports.granville.bateaux[i].nom+`</h4>
+            </div>
+            <div class="panel-body">
+              <p>`+gameData.ports.granville.bateaux[i].voile+`<span class="fa fa-arrows"></span></p>
+              <br>
+              <p>1/`+gameData.ports.granville.bateaux[i].cale+` <span class="fa fa-truck"></span></p>
+              <br>
+              <p>`+gameData.ports.granville.bateaux[i].canons+` <span class="fa fa-bolt"></span></p>
+              <br>
+              <p>`+gameData.ports.granville.bateaux[i].pv+` <span class="fa fa-heart"></span></p>
+            </div>
+          </div>
+        </div>
+      `);
+  }
 });
 
 socket.on('send_wind', function(wind){
@@ -57,10 +95,34 @@ $("#add_user").submit(function(event) {
   }
 });
 
+$("body").on('click', '#mareeHaute', function(event) {
+  event.preventDefault();
+  socket.emit('mareeHaute');
+});
+$("body").on('click', '#mareeDesc', function(event) {
+  event.preventDefault();
+  socket.emit('mareeDesc');
+});
+$("body").on('click', '#mareeBasse', function(event) {
+  event.preventDefault();
+  socket.emit('mareeBasse');
+});
+$("body").on('click', '#mareeMont', function(event) {
+  event.preventDefault();
+  socket.emit('mareeMont');
+});
+
 var hexagonGrid = new HexagonGrid("hexCanvas", 25);
 // Grille entière
 hexagonGrid.drawHexGrid(15, 17, 25, 25, true);
 function drawSea(){
+  for (var i = 0; i < gameData.grid.terre.length; i++) {
+    hexagonGrid.drawHexAtColRow(gameData.grid.terre[i].x, gameData.grid.terre[i].y, "#669900");
+  }
+  for (var i = 0; i < gameData.grid.mer_haute.length; i++) {
+    hexagonGrid.drawHexAtColRow(gameData.grid.mer_haute[i].x, gameData.grid.mer_haute[i].y, "rgba(0,153,204,0.6)");
+  }
+
 // Ports
 hexagonGrid.drawHexAtColRow(2, 2, "#cc33ff", "✙ CH");
 hexagonGrid.drawHexAtColRow(10, 4, "#0099cc", "✠ GRVL");
@@ -195,4 +257,5 @@ hexagonGrid.drawHexAtColRow(3, 1, "#669900");
   hexagonGrid.drawHexAtColRow(2, 1, "rgba(0,77,102,0.75)");
   hexagonGrid.drawHexAtColRow(1, 0, "rgba(0,77,102,0.75)");
   hexagonGrid.drawHexAtColRow(1, 1, "rgba(0,77,102,0.75)");
+
 }

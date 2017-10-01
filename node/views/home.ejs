@@ -14,7 +14,7 @@
 
 	<div class="container">
 		<div class="page-header">
-			<h1><span class="fa fa-ship"></span> Pirate Baie <small>Un jeu super bien !</small></h1>
+			<h1><span class="fa fa-ship"></span> Pirate Baie <small>Un jeu super bien, inspiré d'une histoire vraie !</small></h1>
 		</div>
 
     <div class="flash-message">
@@ -35,6 +35,9 @@
       <div class="row">
         <div class="col-md-8">
           <h3 id="playerScore" class="page-header"></h3>
+					<div class="row" id="playerBateaux">
+						
+					</div>
         </div>
         <div class="col-md-4">
           <h2><span class="fa fa-users"></span> Liste des joueurs</h2>
@@ -44,6 +47,10 @@
             <% }); %>
           </ul>
           <h2 id="boussoleVent"></h2>
+          <button class="btn btn-primary" id="mareeHaute">Marée haute</button>
+          <button class="btn btn-primary" id="mareeDesc">Marée descendante</button>
+          <button class="btn btn-primary" id="mareeBasse">Marée basse</button>
+          <button class="btn btn-primary" id="mareeMont">Marée montante</button>
         </div>
       </div>
 
