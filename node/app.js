@@ -5,12 +5,12 @@ var io = require('socket.io').listen(server);
 var ent = require('ent');
 var shell = require('shelljs');
 var SerialPort = require('serialport');
-var port = new SerialPort('/dev/tty-usbserial1');
+var port = new SerialPort('/dev/ttyAM0');
 var players = [];
 var start = 0;
 var vent;
 var maree;
-const bateaux = [
+var bateaux = [
 	{
 		id: 1,
 		type: "Terre-Neuvier",
@@ -44,7 +44,7 @@ const bateaux = [
 		steps: 4
 	}
 ];
-const ports = [
+var ports = [
 	{
 		id: 1,
 		nom: "Granville",
@@ -278,6 +278,9 @@ io.sockets.on('connection', function(socket){
 var tours = 0;
 
 function start_pirates(){
+	for (var i = 0; i < players.length; i++) {
+		players[i].ready = false;
+	}
 	if (tours === 0) {
 		vent = "se";
 		maree = 0;
@@ -306,6 +309,13 @@ function start_pirates(){
 
 		}
 	}
+	port.write('1', function(err){
+		if (err) {
+			return console.log('Error : '+ err.message);
+		}
+		console.log('transmis');
+	});
+	tours++;
 }
 
 server.listen(8080);
