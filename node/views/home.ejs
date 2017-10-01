@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Pirate Baie</title>
+
+	<link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+	<div class="container">
+		<div class="page-header">
+			<h1><span class="fa fa-ship"></span> Pirate Baie <small>Un jeu super bien !</small></h1>
+		</div>
+
+    <div class="flash-message">
+      <div class="panel panel-danger">
+
+      </div>
+    </div>
+
+		<form id="add_user" action="/" method="post">
+			<div class="form-group">
+				<label for="username">Pseudo</label>
+				<input type="text" class="form-control" id="username" name="username" placeholder="Comment veux-tu que les autres te voient ?" autofocus />
+			</div>
+			<button type="submit" class="btn btn-primary"><span class="fa fa-check-circle-o"></span> Go !</button>
+		</form>
+
+    <div id="jeu">
+      <div class="row">
+        <div class="col-md-8">
+          <h3 id="playerScore" class="page-header"></h3>
+        </div>
+        <div class="col-md-4">
+          <h2><span class="fa fa-users"></span> Liste des joueurs</h2>
+          <ul class="list-group" id="playersList">
+            <% players.forEach(function(player, index){ %>
+              <li class="list-group-item"><%- player.nom %> <%- player.ready ? '<span class="pull-right text-success">Prêt !</span>' : '' %></li>
+            <% }); %>
+          </ul>
+        </div>
+      </div>
+
+      <div id="map">
+        <canvas id="hexCanvas" width="700" height="700"></canvas>
+      </div>
+    </div>
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="/socket.io/socket.io.js"></script>
+  <script src="/js/hexagon.js" charset="utf-8"></script>
+  <script src="/js/main.js" charset="utf-8"></script>
+</body>
+</html>

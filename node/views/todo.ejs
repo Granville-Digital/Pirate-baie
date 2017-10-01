@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Pirate Baie</title>
+
+	<link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+	<div class="container">
+		<div class="page-header">
+			<h1><span class="fa fa-ship"></span> Pirate Baie <small>Un jeu super bien !</small></h1>
+		</div>
+
+		<div id="list">
+			<ul class="list-group">
+			<% todolist.forEach(function(todo, index) { %>
+				<li class="list-group-item"><button type="button" data-delete="<%= index %>" class="btn btn-danger btn-xs" title="Supprimer de la liste">✘</button> <%- todo %></li>
+			<% }); %>
+			</ul>
+		</div>
+
+		<form id="add_todo" action="/todo" method="post">
+			<div class="form-group">
+				<label for="newtodo">Quelle chose à faire faut-il ajouter à la liste ?</label>
+				<input type="text" class="form-control" id="newtodo" name="newtodo" placeholder="Chose à faire ..." autofocus />
+			</div>
+			<button type="submit" class="btn btn-primary">✔ Ajouter</button>
+		</form>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var socket = io.connect('http://localhost:8080');
+
+		socket.on('updateToDoList', function(todolist){
+			$('#list ul li').remove();
+			for (var i = 0, l = todolist.length; i < l; i++) {
+				$('#list ul').append('<li class="list-group-item"><button type="button" data-delete="'+i+'" class="btn btn-danger btn-xs" title="Supprimer de la liste">✘</button> '+todolist[i]+'</li>');
+			}
+		});
+
+		// Ajout d'une tâche
+		$('#add_todo').submit(function(event) {
+			event.preventDefault();
+
+			var newToDo = $('#newtodo').val();
+			// On vérifie que le champs ne soit pas vide
+			if (newToDo != '') {
+				socket.emit('addtodo', newToDo);
+				$('#newtodo').val('').focus();
+			}
+		});
+
+		// Suppression d'une tâche
+		$('#list ul').on('click', 'li button.btn-danger', function(event) {
+			event.preventDefault();
+
+			var idToRemove = $(this).data('delete');
+			socket.emit('removetodo', idToRemove);
+		});
+	</script>
+</body>
+</html>
