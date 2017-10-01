@@ -192,14 +192,15 @@ HexagonGrid.prototype.clickEvent = function (e) {
     var tile = this.getSelectedTile(localX, localY);
     for (var i = 0; i < player.port.bateaux.length; i++) {
       if (player.port.bateaux) {
-        if (player.port.bateaux[i].coord_x == tile.column && player.port.bateaux[i].coord_y == tile.row) {
-          if (tile.column >= 0 && tile.column < 26 && tile.row >= 0 && tile.row < 21) {
+        if (player.port.bateaux[i].coord_x == tile.column && player.port.bateaux[i].coord_y == tile.row && !player.port.bateaux[i].selected) {
+          if (tile.column >= 0 && tile.column < 17 && tile.row >= 0 && tile.row < 14) {
             var drawy = tile.column % 2 == 0 ? (tile.row * this.height) + this.canvasOriginY + 6 : (tile.row * this.height) + this.canvasOriginY + 6 + (this.height / 2);
             var drawx = (tile.column * this.side) + this.canvasOriginX;
+            player.port.bateaux[i].selected = true;
 
             console.log(tile);
             this.drawHex(drawx, drawy - 6, "rgba(0,0,110,1)", tile.column+","+tile.row, "#fff");
-            switch (wind) {
+            switch (vent) {
               case "n":
               if (tile.column % 2 === 0) {
                 this.drawHexAtColRow(tile.column, tile.row - 1, "#00ff00");
@@ -417,6 +418,9 @@ HexagonGrid.prototype.clickEvent = function (e) {
               break;
             }
           }
+        } else if (player.port.bateaux[i].coord_x == tile.column && player.port.bateaux[i].coord_y == tile.row && player.port.bateaux[i].selected) {
+          player.port.bateaux[i].selected = !player.port.bateaux[i].selected;
+          drawSea();
         }
       }
     }

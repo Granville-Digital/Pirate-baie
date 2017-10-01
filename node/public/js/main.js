@@ -1,4 +1,6 @@
 var player = {};
+var vent;
+var maree;
 var socket = io.connect('http://localhost:8080');
 
 if (!player.id) {
@@ -27,6 +29,12 @@ socket.on('assign_ports', function(ports){
   player.port = ports[player.id];
 });
 
+socket.on('send_wind', function(wind){
+  vent = wind;
+  $("#boussoleVent").html('<span class="fa fa-compass"></span> '+vent.toUpperCase());
+  console.log(vent);
+});
+
 socket.on('start_game', function(){
   alert("Go mamène !!!");
 });
@@ -52,6 +60,7 @@ $("#add_user").submit(function(event) {
 var hexagonGrid = new HexagonGrid("hexCanvas", 25);
 // Grille entière
 hexagonGrid.drawHexGrid(15, 17, 25, 25, true);
+function drawSea(){
 // Ports
 hexagonGrid.drawHexAtColRow(2, 2, "#cc33ff", "✙ CH");
 hexagonGrid.drawHexAtColRow(10, 4, "#0099cc", "✠ GRVL");
@@ -88,7 +97,6 @@ hexagonGrid.drawHexAtColRow(0, 11, "#669900");
 hexagonGrid.drawHexAtColRow(1, 2, "#669900");
 hexagonGrid.drawHexAtColRow(3, 2, "#669900");
 hexagonGrid.drawHexAtColRow(3, 1, "#669900");
-function drawSea(){
   // Mer 0
   hexagonGrid.drawHexAtColRow(0, 10, "rgba(0,153,204,0.6)");
   hexagonGrid.drawHexAtColRow(0, 13, "rgba(0,153,204,0.6)");
