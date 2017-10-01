@@ -23,6 +23,10 @@ socket.on('tooMuchPlayers', function(){
   console.log("Il y a déjà trop de joueurs !");
 });
 
+socket.on('assign_ports', function(ports){
+  player.port = ports[player.id];
+});
+
 socket.on('start_game', function(){
   alert("Go mamène !!!");
 });

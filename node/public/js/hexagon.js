@@ -190,11 +190,10 @@ HexagonGrid.prototype.clickEvent = function (e) {
     var localY = mouseY - this.canvasOriginY;
 
     var tile = this.getSelectedTile(localX, localY);
-    for (var i = 0; i < player.bateaux.length; i++) {
-      if (player.bateaux) {
-        if (player.bateaux[i].position.x == tile.column && player.bateaux[i].position.y == tile.row) {
+    for (var i = 0; i < player.port.bateaux.length; i++) {
+      if (player.port.bateaux) {
+        if (player.port.bateaux[i].coord_x == tile.column && player.port.bateaux[i].coord_y == tile.row) {
           if (tile.column >= 0 && tile.column < 26 && tile.row >= 0 && tile.row < 21) {
-            var wind = "n";
             var drawy = tile.column % 2 == 0 ? (tile.row * this.height) + this.canvasOriginY + 6 : (tile.row * this.height) + this.canvasOriginY + 6 + (this.height / 2);
             var drawx = (tile.column * this.side) + this.canvasOriginX;
 

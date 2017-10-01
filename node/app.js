@@ -4,6 +4,8 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var ent = require('ent');
 var shell = require('shelljs');
+var SerialPort = require('serialport');
+var port = new SerialPort('/dev/tty-usbserial1');
 var players = [];
 var start = 0;
 var vent;
@@ -232,7 +234,7 @@ io.sockets.on('connection', function(socket){
 		}
 		else {
 			socket.username = ent.encode(username);
-			socket.id = Math.floor(Math.random() * 1000);
+			socket.id = players.length;
 			var newPlayer = {
 				id: socket.id,
 				nom: socket.username
@@ -255,16 +257,26 @@ io.sockets.on('connection', function(socket){
 			if (r == players.length) {
 				socket.emit('start_game');
 				socket.broadcast.emit('start_game');
+				socket.emit('assign_ports', ports);
+				socket.broadcast.emit('assign_ports', ports);
 				start_pirates();
+				socket.emit('send_wind', vent);
+				socket.broadcast.emit('send_wind', vent);
 				start = 1;
 			}
 		}
 		socket.broadcast.emit('updatePlayers', players);
 	});
 
+	socket.on('move_bateau', function(id, bateau_id, x, y){
+		ports[id].bateaux[bateau_id].coord_x = x;
+		ports[id].bateaux[bateau_id].coord_y = y;
+	});
+
 });
 
 var tours = 0;
+
 function start_pirates(){
 	if (tours === 0) {
 		vent = "se";
@@ -273,7 +285,26 @@ function start_pirates(){
 		vent = "s";
 		maree = 1;
 	} else {
+		var ventRand = Matho.random()*100;
+		if (ventRand <= 16){
+			vent = "n";
+		} else if (ventRand > 16 && ventRand <= 32) {
+			vent = "s";
+		} else if (ventRand > 32 && ventRand <= 48) {
+			vent = "nw";
+		} else if (ventRand > 48 && ventRand <= 64) {
+			vent = "sw";
+		} else if (ventRand > 64 && ventRand <= 80) {
+			vent = "ne";
+		} else {
+			vent = "se";
+		}
+		if (maree == 3) {
+			maree--;
+		}
+		else {
 
+		}
 	}
 }
 
