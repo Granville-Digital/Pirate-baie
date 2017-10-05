@@ -333,7 +333,7 @@ function start_pirates(){
 		vent = "s";
 		maree = 1;
 	} else {
-		var ventRand = Matho.random()*100;
+		var ventRand = Matho.random()*96;
 		if (ventRand <= 16){
 			vent = "n";
 		} else if (ventRand > 16 && ventRand <= 32) {

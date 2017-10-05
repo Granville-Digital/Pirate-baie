@@ -5,7 +5,7 @@ var socket = io.connect('http://localhost:8080');
 var gameData;
 
 $.ajax({
-  url: '/data.json',
+  url: '/../data.json',
   type: 'GET',
   dataType: 'json'
 })
@@ -120,9 +120,18 @@ function drawSea(){
     hexagonGrid.drawHexAtColRow(gameData.grid.terre[i].x, gameData.grid.terre[i].y, "#669900");
   }
   for (var i = 0; i < gameData.grid.mer_haute.length; i++) {
-    hexagonGrid.drawHexAtColRow(gameData.grid.mer_haute[i].x, gameData.grid.mer_haute[i].y, "rgba(0,153,204,0.6)");
+    hexagonGrid.drawHexAtColRow(gameData.grid.mer_haute[i].x, gameData.grid.mer_haute[i].y, "rgba(0,153,204,1)");
   }
-
+  for (var i = 0; i < gameData.grid.mer_semi.length; i++) {
+    hexagonGrid.drawHexAtColRow(gameData.grid.mer_semi[i].x, gameData.grid.mer_semi[i].y, "rgba(0,115,153,1)");
+  }
+  for (var i = 0; i < gameData.grid.mer_basse.length; i++) {
+    hexagonGrid.drawHexAtColRow(gameData.grid.mer_basse[i].x, gameData.grid.mer_basse[i].y, "rgba(0,77,102,1)");
+  }
+  for (var i = 0; i < gameData.ports.length; i++) {
+    hexagonGrid.drawHexAtColRow(gameData.ports[i].position.x, gameData.ports[i].position.y, gameData.ports[i].couleur);
+  }
+/*
 // Ports
 hexagonGrid.drawHexAtColRow(2, 2, "#cc33ff", "✙ CH");
 hexagonGrid.drawHexAtColRow(10, 4, "#0099cc", "✠ GRVL");
@@ -257,5 +266,5 @@ hexagonGrid.drawHexAtColRow(3, 1, "#669900");
   hexagonGrid.drawHexAtColRow(2, 1, "rgba(0,77,102,0.75)");
   hexagonGrid.drawHexAtColRow(1, 0, "rgba(0,77,102,0.75)");
   hexagonGrid.drawHexAtColRow(1, 1, "rgba(0,77,102,0.75)");
-
+*/
 }

@@ -203,215 +203,215 @@ HexagonGrid.prototype.clickEvent = function (e) {
             switch (vent) {
               case "n":
               if (tile.column % 2 === 0) {
-                this.drawHexAtColRow(tile.column, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 3, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 4, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 3, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 3, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "#00ff00");
+                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 3, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 4, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row - 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row - 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row - 3, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row - 3, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
               }
               else {
-                this.drawHexAtColRow(tile.column, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 3, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 4, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "#00ff00");
+                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 3, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 4, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row - 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row - 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
               }
 
               break;
               case "s":
               if (tile.column % 2 === 0) {
-                this.drawHexAtColRow(tile.column, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 3, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 4, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "#00ff00");
+                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 3, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 4, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
               }
               else {
-                this.drawHexAtColRow(tile.column, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 3, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 4, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 3, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 3, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "#00ff00");
+                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 3, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 4, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row + 3, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row + 3, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
               }
               break;
               case "se":
               if (tile.column % 2 === 0) {
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 3, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 4, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 3, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row - 2, "#00ff00");
+                if (!checkBoatMove({"x": tile.column - 1, "y": tile.row - 1})) this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column - 2, "y": tile.row - 1})) this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column - 3, "y": tile.row - 2})) this.drawHexAtColRow(tile.column - 3, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column - 4, "y": tile.row - 2})) this.drawHexAtColRow(tile.column - 4, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column - 1, "y": tile.row})) this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column - 2, "y": tile.row})) this.drawHexAtColRow(tile.column - 2, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column - 2, "y": tile.row + 1})) this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column, "y": tile.row + 1})) this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column + 1, "y": tile.row - 1})) this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column, "y": tile.row - 1})) this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column, "y": tile.row - 2})) this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column - 1, "y": tile.row - 2})) this.drawHexAtColRow(tile.column - 1, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column - 3, "y": tile.row - 1})) this.drawHexAtColRow(tile.column - 3, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column - 2, "y": tile.row - 2})) this.drawHexAtColRow(tile.column - 2, tile.row - 2, "rgba(0, 255, 0, 1)");
               }
               else {
-                this.drawHexAtColRow(tile.column - 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 3, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 4, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 3, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row - 2, "#00ff00");
+                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 3, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 4, tile.row - 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 3, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row - 2, "rgba(0, 255, 0, 1)");
               }
               break;
               case "sw":
               if (tile.column % 2 === 0) {
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 3, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 4, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 3, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 2, "#00ff00");
+                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 3, tile.row - 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 4, tile.row - 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row - 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 3, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row - 2, "rgba(0, 255, 0, 1)");
               }
               else {
-                this.drawHexAtColRow(tile.column + 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 3, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 4, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 3, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 2, "#00ff00");
+                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 3, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 4, tile.row - 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 3, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row - 2, "rgba(0, 255, 0, 1)");
               }
               break;
               case "ne":
               if (tile.column % 2 === 0) {
-                this.drawHexAtColRow(tile.column - 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 3, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 4, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 3, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 1, "#00ff00");
+                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 3, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 4, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 3, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
               }
               else {
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 3, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 4, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 3, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 2, tile.row + 2, "#00ff00");
+                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 3, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 4, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 3, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 2, tile.row + 2, "rgba(0, 255, 0, 1)");
               }
               break;
               case "nw":
               if (tile.column % 2 === 0) {
-                this.drawHexAtColRow(tile.column + 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 3, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 4, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 3, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 1, "#00ff00");
+                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 3, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 4, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 3, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
               }
               else {
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 3, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 4, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column, tile.row + 2, "#00ff00");
-                this.drawHexAtColRow(tile.column + 3, tile.row + 1, "#00ff00");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 2, "#00ff00");
+                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 3, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 4, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 1, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 3, tile.row + 1, "rgba(0, 255, 0, 1)");
+                this.drawHexAtColRow(tile.column + 2, tile.row + 2, "rgba(0, 255, 0, 1)");
               }
               break;
             default:
@@ -425,3 +425,12 @@ HexagonGrid.prototype.clickEvent = function (e) {
       }
     }
 };
+
+function checkBoatMove(obj){
+  for (var i = 0; i < gameData.grid.terre.length; i++) {
+    if (gameData.grid.terre[i].x == obj.x && gameData.grid.terre[i].y == obj.y) {
+      return true;
+    }
+  }
+  return false;
+}
