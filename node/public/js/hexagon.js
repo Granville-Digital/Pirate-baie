@@ -48,7 +48,7 @@ HexagonGrid.prototype.drawHexGrid = function (rows, cols, originX, originY, isDe
 };
 
 HexagonGrid.prototype.drawHexAtColRow = function(column, row, color, debugText = column+","+row) {
-    if (column >= 0 && column < 26 && row >= 0 && row < 21) {
+    if (column >= 0 && column < 17 && row >= 0 && row < 15) {
       var drawy = column % 2 == 0 ? (row * this.height) + this.canvasOriginY : (row * this.height) + this.canvasOriginY + (this.height / 2);
       var drawx = (column * this.side) + this.canvasOriginX;
 
