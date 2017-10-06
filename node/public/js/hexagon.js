@@ -48,7 +48,7 @@ HexagonGrid.prototype.drawHexGrid = function (rows, cols, originX, originY, isDe
 };
 
 HexagonGrid.prototype.drawHexAtColRow = function(column, row, color, debugText = column+","+row) {
-    if (column >= 0 && column < 17 && row >= 0 && row < 15) {
+    if (!checkBoatMove()) if (column >= 0 && column < 17 && row >= 0 && row < 15) {
       var drawy = column % 2 == 0 ? (row * this.height) + this.canvasOriginY : (row * this.height) + this.canvasOriginY + (this.height / 2);
       var drawx = (column * this.side) + this.canvasOriginX;
 
@@ -64,7 +64,7 @@ HexagonGrid.prototype.drawHex = function(x0, y0, fillColor, debugText, debugText
     this.context.lineTo(x0 + this.width, y0 + (this.height / 2));
     this.context.lineTo(x0 + this.side, y0 + this.height);
     this.context.lineTo(x0 + this.width - this.side, y0 + this.height);
-    this.context.lineTo(x0, y0 + (this.height / 2));
+    if (!checkBoatMove()) this.context.lineTo(x0, y0 + (this.height / 2));
 
     if (fillColor) {
         this.context.fillStyle = fillColor;
@@ -85,7 +85,7 @@ HexagonGrid.prototype.drawHex = function(x0, y0, fillColor, debugText, debugText
 HexagonGrid.prototype.getRelativeCanvasOffset = function() {
 	var x = 0, y = 0;
 	var layoutElement = this.canvas;
-    if (layoutElement.offsetParent) {
+    if (!checkBoatMove()) if (layoutElement.offsetParent) {
         do {
             x += layoutElement.offsetLeft;
             y += layoutElement.offsetTop;
@@ -203,75 +203,75 @@ HexagonGrid.prototype.clickEvent = function (e) {
             switch (vent) {
               case "n":
               if (tile.column % 2 === 0) {
-                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 3, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 4, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 3, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 3, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column, "y": tile.row - 1})) this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column, "y": tile.row - 2})) this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column, "y": tile.row - 3})) this.drawHexAtColRow(tile.column, tile.row - 3, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column, "y": tile.row - 4})) this.drawHexAtColRow(tile.column, tile.row - 4, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column - 1, "y": tile.row - 1})) this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column + 1, "y": tile.row - 1})) this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column - 1, "y": tile.row - 2})) this.drawHexAtColRow(tile.column - 1, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column + 1, "y": tile.row - 2})) this.drawHexAtColRow(tile.column + 1, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column - 1, "y": tile.row - 3})) this.drawHexAtColRow(tile.column - 1, tile.row - 3, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column + 1, "y": tile.row - 3})) this.drawHexAtColRow(tile.column + 1, tile.row - 3, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column + 2, "y": tile.row - 1})) this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column - 2, "y": })) this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column - 1, "y": })) this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": tile.column + 1, "y": })) this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
               }
               else {
-                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 3, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 4, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row - 3, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row - 4, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
               }
 
               break;
               case "s":
               if (tile.column % 2 === 0) {
-                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 3, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 4, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 3, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 4, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
               }
               else {
-                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 3, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 4, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 3, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 3, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 3, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 4, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row + 3, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row + 3, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
               }
               break;
               case "se":
@@ -292,126 +292,126 @@ HexagonGrid.prototype.clickEvent = function (e) {
                 if (!checkBoatMove({"x": tile.column - 2, "y": tile.row - 2})) this.drawHexAtColRow(tile.column - 2, tile.row - 2, "rgba(0, 255, 0, 1)");
               }
               else {
-                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 3, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 4, tile.row - 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 3, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 3, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 4, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 3, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 2, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 2, tile.row - 2, "rgba(0, 255, 0, 1)");
               }
               break;
               case "sw":
               if (tile.column % 2 === 0) {
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 3, tile.row - 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 4, tile.row - 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 3, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 3, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 4, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 3, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row - 2, "rgba(0, 255, 0, 1)");
               }
               else {
-                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 3, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 4, tile.row - 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 3, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 3, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 4, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 3, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row - 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row - 2, "rgba(0, 255, 0, 1)");
               }
               break;
               case "ne":
               if (tile.column % 2 === 0) {
-                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 3, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 4, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 3, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 3, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 4, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 3, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 2, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 2, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
               }
               else {
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 3, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 4, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 3, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 2, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 3, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 4, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 2, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 3, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 2, tile.row + 2, "rgba(0, 255, 0, 1)");
               }
               break;
               case "nw":
               if (tile.column % 2 === 0) {
-                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 3, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 4, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 3, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 3, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 4, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 3, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
               }
               else {
-                this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 3, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 4, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 1, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 3, tile.row + 1, "rgba(0, 255, 0, 1)");
-                this.drawHexAtColRow(tile.column + 2, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 3, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 4, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column - 1, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row - 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 1, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column, tile.row + 2, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 3, tile.row + 1, "rgba(0, 255, 0, 1)");
+                if (!checkBoatMove({"x": , "y": })) this.drawHexAtColRow(tile.column + 2, tile.row + 2, "rgba(0, 255, 0, 1)");
               }
               break;
             default:

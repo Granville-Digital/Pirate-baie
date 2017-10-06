@@ -24,7 +24,7 @@ if (isset($_POST['username']) && !empty($_POST['username'])) {
       <div class="row">
         <div class="col-xs-12 col-md-4">
           <h2 class="page-header"><?= $_SESSION['username']; ?></h2>
-          25 <span class="fa fa-connectdevelop"></span>
+          25 <span class="fa fa-diamond"></span>
         </div>
         <div class="clearfix visible-xs-block"></div>
         <div class="col-xs-12 col-md-4">
@@ -45,7 +45,7 @@ if (isset($_POST['username']) && !empty($_POST['username'])) {
                 <div class="col-xs-6">
                   <div class="panel panel-warning">
                     <div class="panel-heading">
-                      <h3 class="panel-title">Débris <span class="text-right">0 <span class="fa fa-connectdevelop"></span></span></h3>
+                      <h3 class="panel-title">Débris <span class="pull-right">0 <span class="fa fa-diamond"></span></span></h3>
                     </div>
                   </div>
                   <div class="panel panel-success">
@@ -77,12 +77,12 @@ if (isset($_POST['username']) && !empty($_POST['username'])) {
                 <div class="col-xs-6">
                   <div class="panel panel-info">
                     <div class="panel-heading">
-                      <h3 class="panel-title">Poissons <span class="text-right">1 <span class="fa fa-connectdevelop"></span></span></h3>
+                      <h3 class="panel-title">Poissons <span class="pull-right">1 <span class="fa fa-diamond"></span></span></h3>
                     </div>
                   </div>
                   <div class="panel panel-info">
                     <div class="panel-heading">
-                      <h3 class="panel-title">Trésor <span class="text-right">5 <span class="fa fa-connectdevelop"></span></span></h3>
+                      <h3 class="panel-title">Trésor <span class="pull-right">5 <span class="fa fa-diamond"></span></span></h3>
                     </div>
                   </div>
                   <div class="panel panel-success">
@@ -142,10 +142,7 @@ if (isset($_POST['username']) && !empty($_POST['username'])) {
     }
     ?>
     </div>
-    <script type="text/javascript">
-      var hexagonGrid = new HexagonGrid("hexCanvas", 25);
-      hexagonGrid.drawHexGrid(21, 26, 25, 25, true);
-      hexagonGrid.drawHexAtColRow(1, 2, "#ff0000");
-    </script>
+
+    <script src="js/main.js" charset="utf-8"></script>
   </body>
 </html>
