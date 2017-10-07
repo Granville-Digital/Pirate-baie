@@ -27,7 +27,7 @@ La mer bouge :
 3. Marée basse
 4. Marée montante
 
-La provenance du vent est choisi alétoirement entre :
+La provenance du vent est choisie alétoirement entre :
 * Nord
 * Sud
 * Nord-Ouest
@@ -35,7 +35,7 @@ La provenance du vent est choisi alétoirement entre :
 * Nord-Est
 * Sud-Est
 
-Chaque joueur attribut un **déplacement** et une **action** à chacun de ses bateaux, puis clique sur le bouton `Prêt !`.
+Chaque joueur attribue un **déplacement** et une **action** à chacun de ses bateaux, puis clique sur le bouton `Prêt !`.
 
 ### Déplacements
 La capacité de déplacement d'un bateau est définie par son attribut `voile`. Ses possibilités de déplacement vont dépendre du vent (sauf pour la **Barque**). Les cases qui vont dans le sens du vent coûtent 1 déplacement. Celles qui se situent à un angle de 60° par rapport au sens du vent vont coûter 2 déplacements. Celles qui se situent à un angle de 120° par rapport au sens du vent vont coûter 3 déplacements. Exemple :
